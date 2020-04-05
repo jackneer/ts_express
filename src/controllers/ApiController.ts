@@ -1,9 +1,9 @@
 import express from 'express'
 import { Request, Response } from 'express'
-import IController from './IController'
+import IController from "./IController";
 
-class HomeController implements IController {
-    public path = '/'
+class ApiController implements IController {
+    public path = '/api'
     public router = express.Router()
 
     constructor() {
@@ -19,4 +19,4 @@ class HomeController implements IController {
     }
 }
 
-export default HomeController
+export default ApiController

@@ -11,11 +11,11 @@ class HomeController implements IController {
     }
 
     public initRoute() {
-        this.router.get('/index', this.index)
+        this.router.get('/', this.index)
     }
 
     index = (req: Request, res: Response) => {
-        res.send("hello")
+        res.send("hello world")
     }
 }
 

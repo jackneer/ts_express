@@ -1,12 +1,13 @@
-import {Model, Table, Column, ForeignKey, BelongsTo, AutoIncrement, PrimaryKey, DataType, CreatedAt, UpdatedAt, BelongsToMany} from 'sequelize-typescript';
+import {Model, Table, Column, ForeignKey, BelongsTo, AutoIncrement, PrimaryKey, DataType, CreatedAt, UpdatedAt, BelongsToMany, HasMany} from 'sequelize-typescript';
 import { Item } from './item';
 
 @Table({tableName:'user'})
-export class User extends Model<User>{
+export class User extends Model<User> {
 
     @PrimaryKey
+    @AutoIncrement
     @Column(DataType.INTEGER)
-    id!: number;
+    userId!: number;
 
     @Column(DataType.STRING)
     name!: string;
@@ -20,6 +21,6 @@ export class User extends Model<User>{
     @UpdatedAt
     updatedAt!: Date;
 
-    @BelongsTo(() => Item)
-    items?: Item[];
+    @HasMany(() => Item)
+    items!: Item[]
 }

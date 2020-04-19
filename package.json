@@ -1,20 +1,28 @@
 {
   "name": "ts_express",
   "version": "1.0.0",
-  "description": "",
+  "description": "app server in typescript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "npm run serve",
     "serve": "node build/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "node.js",
+    "express",
+    "sequelize",
+    "typescript"
+  ],
+  "author": "Jack Wu",
   "license": "ISC",
   "devDependencies": {
+    "@types/bluebird": "^3.5.30",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
     "@types/morgan": "^1.9.0",
+    "@types/node": "^13.13.0",
+    "@types/validator": "^13.0.0",
     "sequelize-typescript": "^1.1.0",
     "typescript": "^3.8.3"
   },
@@ -22,7 +30,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
     "save": "^2.4.0",
-    "sequelize": "^5.21.6"
+    "sequelize": "^5.21.6",
+    "sqlite3": "^4.1.1"
   }
 }

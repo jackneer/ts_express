@@ -7,8 +7,11 @@ import cors from 'cors'
 import morgan from 'morgan'
 import fs from 'fs'
 import path from 'path'
+import { sequelize } from './models/sequelize'
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+
+sequelize.sync({force: true})
 
 const app = new App({
     port: 5000,
@@ -25,4 +28,7 @@ const app = new App({
     ]
 })
 
-app.listen()
+sequelize.addHook('afterBulkSync', () => {
+    app.listen()
+})
+

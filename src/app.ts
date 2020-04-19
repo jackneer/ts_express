@@ -1,5 +1,6 @@
 import express from 'express'
 import { Application } from 'express'
+import { Startup } from './startup'
 
 class App {
     
@@ -36,6 +37,7 @@ class App {
     public listen() {
         this.app.listen(this.port, () => {
             console.log('App starts at port:%s', this.port)
+            new Startup()
         })
     }
 

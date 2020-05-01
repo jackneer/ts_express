@@ -26,19 +26,19 @@ class ApiController implements IController {
     }
     
     user = async (req: Request, res: Response) => {
-        const user = await User.findOne({where: {userId: req.params.userId}, include: [{model: Item}]});
+        const user = await User.findOne({ where: { userId: req.params.userId }, include: [{ model: Item }]})
 
         res.send(user)
     }
 
     items = async (req: Request, res: Response) => {
-        const items = await Item.findAll().all();
+        const items = await Item.findAll().all()
 
         res.send(items)
     }
 
     item = async (req: Request, res: Response) => {
-        const item = await Item.findOne({where: {itemId: req.params.itemId}});
+        const item = await Item.findOne({ where: { itemId: req.params.itemId }, include: [{ model: User }]})
 
         res.send(item)
     }

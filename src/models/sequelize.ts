@@ -4,6 +4,6 @@ import { User } from './user';
 
 export const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: ':momory:',
+    storage: ':memory:',
     models: [User, Item],
 });

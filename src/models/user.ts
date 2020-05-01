@@ -7,20 +7,27 @@ export class User extends Model<User> {
     @PrimaryKey
     @AutoIncrement
     @Column(DataType.INTEGER)
-    userId!: number;
+    userId!: number
 
     @Column(DataType.STRING)
-    name!: string;
+    name!: string
     
     @Column(DataType.STRING)
-    password!: string;
+    password!: string
 
     @CreatedAt
-    createdAt!: Date;
+    createdAt!: Date
 
     @UpdatedAt
-    updatedAt!: Date;
+    updatedAt!: Date
 
     @HasMany(() => Item)
     items!: Item[]
+
+    toJSON() {
+        var attributes: any = Object.assign({}, this.get())
+        delete attributes.password
+
+        return attributes
+    }
 }
